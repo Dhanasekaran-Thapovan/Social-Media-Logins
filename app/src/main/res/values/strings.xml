@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Thapovan</string>
+    <string name="facebook_app_id">1496555090532636</string>
+    <string name="fb_login_protocol_scheme">fb1496555090532636</string>
+</resources>
