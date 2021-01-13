@@ -2,4 +2,13 @@
     <string name="app_name">Thapovan</string>
     <string name="facebook_app_id">1496555090532636</string>
     <string name="fb_login_protocol_scheme">fb1496555090532636</string>
+    <string name="success_msg">Success</string>
+    <string name="cancel_msg">cancel</string>
+    <string name="login">Login</string>
+    <string name="sign_in_using">Sign In Using</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="mail">Mail</string>
+    <string name="dob">DOB</string>
 </resources>

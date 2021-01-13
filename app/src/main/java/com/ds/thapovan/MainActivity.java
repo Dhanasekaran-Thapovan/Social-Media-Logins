@@ -4,12 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -30,21 +26,31 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+
+public class MainActivity extends AppCompatActivity {
 
     private GoogleSignInClient mGoogleSignInClient;
     private static final int SIGN_IN_CODE = 1001;
     private AppPreferences preferences;
     private LoginManager loginManager;
     private CallbackManager callbackManager;
+    @BindView(R.id.userName)
+    EditText userName;
+    @BindView(R.id.userid)
+    EditText userid;
+    @BindView(R.id.password)
+    EditText pass;
 
 
     @Override
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         preferences = new AppPreferences(this);
+        ButterKnife.bind(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -60,36 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         callbackManager = CallbackManager.Factory.create();
         facebookSignIn();
 
-        findViewById(R.id.signin_by_google).setOnClickListener(this);
-        findViewById(R.id.signin_by_facebook).setOnClickListener(this);
-        findViewById(R.id.loginbtn).setOnClickListener(this);
-
-
     }
 
-    /*private void printHashKey(MainActivity context) {
-        try {
-            PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), getPackageManager().GET_SIGNING_CERTIFICATES);
-            for (Signature item : info.signingInfo.getSigningCertificateHistory()) {
-                MessageDigest md = null;
-                try {
-                    md = MessageDigest.getInstance("SHA");
-                    md.update(item.toByteArray());
-                    String hashKey = new String(Base64.encode(md.digest(), 0));
-                    Log.i("AppLog", hashKey);
-
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    @Override
+    @OnClick({R.id.signin_by_google, R.id.signin_by_facebook, R.id.loginbtn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.signin_by_google:
@@ -105,15 +85,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void userLogin() {
-        EditText userName=findViewById(R.id.userName);
-        EditText userid=findViewById(R.id.userid);
-        EditText pass=findViewById(R.id.password);
-        if(!isValidEmail(userid.getText().toString()) || userName.getText().toString().isEmpty() || pass.getText().toString().isEmpty()){
-            Toast.makeText(this,"Invalid Data",Toast.LENGTH_SHORT).show();
-        }else {
-            preferences.putUserMail(userid.getText().toString());
-            preferences.putUserName(userName.getText().toString());
-            Intent nextIntent = new Intent(MainActivity.this, SecondaryActivity.class);
+
+        if (!isValidEmail(userid.getText().toString())) {
+            Toast.makeText(this, "Enter a valid Mail", Toast.LENGTH_SHORT).show();
+            if (userName.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Enter a valid username", Toast.LENGTH_SHORT).show();
+                if (pass.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Enter a valid password", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else {
+
+            Userdetails obj = new Userdetails();
+            obj.Name=userName.getText().toString();
+            obj.Email=userid.getText().toString();
+            Gson gson = new Gson();
+            String json = gson.toJson(obj);
+            preferences.putOb(json);
+            Intent nextIntent = new Intent(MainActivity.this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_HOME);
             startActivity(nextIntent);
         }
     }
@@ -123,20 +112,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.i("success", loginResult.toString());
+                Toast.makeText(MainActivity.this, R.string.success_msg, Toast.LENGTH_SHORT).show();
                 graphLoginRequest(loginResult.getAccessToken());
-
 
             }
 
             @Override
             public void onCancel() {
                 Log.i("success", "cancel");
+                Toast.makeText(MainActivity.this, R.string.cancel_msg, Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onError(FacebookException error) {
                 Log.i("success", error.getLocalizedMessage());
+                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -147,11 +139,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {
                 try {
-                    preferences.putUserName(object.getString("name"));
-                    preferences.putUserMail(object.getString("email"));
-                    Intent nextIntent = new Intent(MainActivity.this, SecondaryActivity.class);
-                    startActivity(nextIntent);
 
+                    Userdetails obj = new Userdetails();
+
+                    obj.Name=object.getString("name");
+                    obj.Email=object.getString("email");
+                    obj.DOB=object.getString("birthday");
+                    obj.img=object.getJSONObject("picture").getJSONObject("data").getString("url");
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(obj);
+                    preferences.putOb(json);
+
+                    Intent nextIntent = new Intent(MainActivity.this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_HOME);
+                    startActivity(nextIntent);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,email,gender,birthday");
+        parameters.putString("fields", "id,name,email,gender,birthday,picture");
         request.setParameters(parameters);
         request.executeAsync();
 
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 preferences.putUserMail(account.getEmail());
                 preferences.putToken(account.getIdToken());
             }
-            Intent nextIntent = new Intent(this, SecondaryActivity.class);
+            Intent nextIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_HOME);
             startActivity(nextIntent);
         } catch (ApiException e) {
             e.printStackTrace();
@@ -199,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
     public static boolean isValidEmail(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }

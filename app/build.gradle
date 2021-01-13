@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.jakewharton.butterknife'
 
 }
 
@@ -37,10 +38,35 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-//Google Login
+
+    /*Gson*/
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+/*
+Google Login
+*/
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
-//Facebook Login
+/*
+Facebook Login
+*/
     implementation 'com.facebook.android:facebook-android-sdk:4.31.0'
+/*ButterKnife*/
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    /*GSON*/
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    /*Circular ImageView*/
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    /*CardView*/
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    /*Glide*/
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+
 
 }

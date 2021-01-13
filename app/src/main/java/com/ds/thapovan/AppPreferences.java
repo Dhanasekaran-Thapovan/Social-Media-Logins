@@ -8,6 +8,7 @@ public class AppPreferences {
     private String USER_NAME = "USER_NAME";
     private String USER_MAIL = "USER_MAIL";
     private String TOKEN = "TOKEN";
+    private String OB = "OB";
 
 
     public AppPreferences(Context context) {
@@ -43,5 +44,12 @@ public class AppPreferences {
 
     String getToken() {
         return preferences.getString(TOKEN, "");
+    }
+
+    void putOb(String obj){
+        preferences.edit().putString(OB,obj).apply();
+    }
+    String getOb(){
+        return preferences.getString(OB,"");
     }
 }
