@@ -21,5 +21,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nav_home" />
+    <TextView
+        android:id="@+id/nav_date"
+        style="@style/nav_titles"
+        android:text="Date"
+        android:drawableLeft="@drawable/ic_user"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

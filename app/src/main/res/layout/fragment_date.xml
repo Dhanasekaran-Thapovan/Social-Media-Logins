@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        style="@style/profile_titles"
+        android:id="@+id/dtxtvw"
+        android:text="@string/select_date"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/dfromtxtvw"
+        android:text="@string/from"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintTop_toBottomOf="@id/dtxtvw"
+        app:layout_constraintLeft_toLeftOf="@id/dtxtvw"/>
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/dtotxtvw"
+        android:textColor="@color/txt_grey"
+        android:text="@string/to"
+        app:layout_constraintTop_toBottomOf="@id/dfromtxtvw"
+        app:layout_constraintLeft_toLeftOf="@id/dtxtvw"/>
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/fromdate"
+        android:layout_width="0dp"
+        android:drawableRight="@drawable/ic_calendar"
+        app:layout_constraintTop_toTopOf="@id/dfromtxtvw"
+        app:layout_constraintLeft_toRightOf="@id/dfromtxtvw"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/dfromtxtvw"/>
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/todate"
+        android:layout_width="0dp"
+        android:drawableRight="@drawable/ic_calendar"
+        app:layout_constraintTop_toTopOf="@id/dtotxtvw"
+        app:layout_constraintLeft_toRightOf="@id/dfromtxtvw"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/dtotxtvw"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

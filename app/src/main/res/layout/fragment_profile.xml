@@ -9,9 +9,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="50dp"
-        android:src="@drawable/ic_camera"
         android:padding="5dp"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:src="@drawable/ic_camera"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,14 +53,14 @@
                 style="@style/profile_contents"
                 android:layout_width="0dp"
                 android:id="@+id/tage"
-                android:text="@string/age"
+                android:text="@string/dob"
                 app:layout_constraintTop_toBottomOf="@id/tname"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/tname"/>
             <TextView
                 style="@style/profile_contents"
                 android:layout_width="0dp"
-                android:id="@+id/probile_dob"
+                android:id="@+id/profile_dob"
                 android:text="@string/name"
                 app:layout_constraintTop_toTopOf="@id/tage"
                 app:layout_constraintLeft_toRightOf="@id/tsal"
@@ -70,8 +69,8 @@
             <TextView
                 style="@style/profile_contents"
                 android:layout_width="0dp"
-                android:id="@+id/tid"
-                android:text="@string/id"
+                android:id="@+id/tdob"
+                android:text="@string/mail"
                 app:layout_constraintTop_toBottomOf="@id/tage"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/tname"/>
@@ -80,16 +79,16 @@
                 android:layout_width="0dp"
                 android:id="@+id/profile_mail"
                 android:text="@string/name"
-                app:layout_constraintTop_toTopOf="@id/tid"
+                app:layout_constraintTop_toTopOf="@id/tdob"
                 app:layout_constraintLeft_toRightOf="@id/tsal"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/tid"/>
+                app:layout_constraintBottom_toBottomOf="@id/tdob"/>
             <TextView
                 style="@style/profile_contents"
                 android:layout_width="wrap_content"
                 android:id="@+id/tsal"
-                android:text="@string/salary"
-                app:layout_constraintTop_toBottomOf="@id/tid"
+                android:text="@string/gender"
+                app:layout_constraintTop_toBottomOf="@id/tdob"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/tname"
                 app:layout_constraintBottom_toBottomOf="parent"/>

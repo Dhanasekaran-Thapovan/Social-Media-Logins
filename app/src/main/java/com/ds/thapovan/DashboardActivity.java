@@ -50,7 +50,9 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
             case 2:
                 setNewFragment(new FragmentProfile(), "Profile", false);
                 break;
-
+            case 3:
+                setNewFragment(new FragmentDate(), "Date", false);
+                break;
         }
 
     }
@@ -62,12 +64,19 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
         menuDrawer.syncState();
     }
 
-    @OnClick({R.id.nav_profile})
+    @OnClick({R.id.nav_profile,R.id.nav_date})
     public void onClick(View view) {
+        Intent nxtIntent = null;
         switch (view.getId()) {
             case R.id.nav_profile:
-                Intent nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_PROFILE);
-                startActivity(nxtIntent);
+                nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_PROFILE);
+                break;
+            case R.id.nav_date:
+                nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_DATE);
+                break;
+        }
+        if (nxtIntent!=null){
+            startActivity(nxtIntent);
         }
     }
 
