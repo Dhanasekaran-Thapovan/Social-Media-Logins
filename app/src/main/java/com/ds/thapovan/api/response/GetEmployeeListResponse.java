@@ -1,9 +1,11 @@
-package com.ds.thapovan.api_respose;
+package com.ds.thapovan.api.response;
 
 import java.util.List;
+
+import com.ds.thapovan.api_respose.DataItem;
 import com.google.gson.annotations.SerializedName;
 
-public class GetEmployeeListResponse{
+public class GetEmployeeListResponse extends GenericResponse{
 
 	@SerializedName("data")
 	private List<DataItem> data;
