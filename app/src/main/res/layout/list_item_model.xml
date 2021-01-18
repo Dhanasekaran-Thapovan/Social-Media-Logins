@@ -13,6 +13,7 @@
         android:layout_width="0dp"
         android:id="@+id/tname"
         android:text="@string/name"
+        android:textColor="@color/txt_grey"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
     <TextView
@@ -26,6 +27,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tname"/>
     <TextView
         style="@style/profile_contents"
+        android:textColor="@color/txt_grey"
         android:layout_width="0dp"
         android:id="@+id/tage"
         android:text="@string/age"
@@ -45,6 +47,7 @@
         style="@style/profile_contents"
         android:layout_width="0dp"
         android:id="@+id/tid"
+        android:textColor="@color/txt_grey"
         android:text="@string/id"
         app:layout_constraintTop_toBottomOf="@id/tage"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -62,6 +65,7 @@
         style="@style/profile_contents"
         android:layout_width="wrap_content"
         android:id="@+id/tsal"
+        android:textColor="@color/txt_grey"
         android:text="@string/salary"
         app:layout_constraintTop_toBottomOf="@id/tid"
         app:layout_constraintLeft_toLeftOf="parent"

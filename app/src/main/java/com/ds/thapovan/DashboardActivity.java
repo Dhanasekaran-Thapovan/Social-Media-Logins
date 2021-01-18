@@ -53,6 +53,9 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
             case 3:
                 setNewFragment(new FragmentDate(), "Date", false);
                 break;
+            case 4:
+                setNewFragment(new FragmentAddUser(), "AddUSer", false);
+                break;
         }
 
     }
@@ -64,7 +67,7 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
         menuDrawer.syncState();
     }
 
-    @OnClick({R.id.nav_profile,R.id.nav_date})
+    @OnClick({R.id.nav_profile, R.id.nav_date, R.id.nav_add})
     public void onClick(View view) {
         Intent nxtIntent = null;
         switch (view.getId()) {
@@ -74,13 +77,14 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
             case R.id.nav_date:
                 nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_DATE);
                 break;
+            case R.id.nav_add:
+                nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_ADD_USER);
+                break;
         }
-        if (nxtIntent!=null){
+        if (nxtIntent != null) {
             startActivity(nxtIntent);
         }
     }
-
-
 
 
     @Override

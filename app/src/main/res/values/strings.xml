@@ -21,4 +21,15 @@
     <string name="to">To</string>
     <string name="dob">DOB</string>
     <string name="gender">Gender</string>
+    <string name="add">add</string>
+    <string name="add_user">Add User</string>
+    <string name="date">Date</string>
+    <string name="_name">name</string>
+    <string name="_age">age</string>
+    <string name="_salary">salary</string>
+    <string name="valid_name">Enter a valid name</string>
+    <string name="valid_age">Enter a valid age</string>
+    <string name="valid_sal">Enter a valid salary</string>
+    <string name="address">Address</string>
+    <string name="state">State</string>
 </resources>

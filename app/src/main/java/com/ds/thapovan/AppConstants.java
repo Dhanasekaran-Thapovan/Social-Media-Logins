@@ -5,4 +5,5 @@ public class AppConstants {
     public static final Integer FRAGMENT_HOME=1;
     public static final Integer FRAGMENT_PROFILE=2;
     public static final Integer FRAGMENT_DATE=3;
+    public static final Integer FRAGMENT_ADD_USER=4;
 }

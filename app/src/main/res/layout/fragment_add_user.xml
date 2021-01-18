@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/add_name_txt"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        style="@style/Edit_txt"
+        android:id="@+id/add_name"
+        android:hint="@string/name"
+        app:layout_constraintTop_toBottomOf="@id/add_name_txt"
+        app:layout_constraintLeft_toLeftOf="@id/add_name_txt"
+        app:layout_constraintRight_toRightOf="@id/add_name_txt"/>
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/add_age_txt"
+        android:text="@string/age"
+        app:layout_constraintTop_toBottomOf="@id/add_name"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        style="@style/Edit_txt"
+        android:id="@+id/add_age"
+        android:hint="@string/name"
+        app:layout_constraintTop_toBottomOf="@id/add_age_txt"
+        app:layout_constraintLeft_toLeftOf="@id/add_name_txt"
+        app:layout_constraintRight_toRightOf="@id/add_name_txt"/>
+    <TextView
+        style="@style/profile_contents"
+        android:id="@+id/add_sal_txt"
+        android:text="@string/salary"
+        app:layout_constraintTop_toBottomOf="@id/add_age"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        style="@style/Edit_txt"
+        android:id="@+id/add_sal"
+        android:hint="@string/name"
+        app:layout_constraintTop_toBottomOf="@id/add_sal_txt"
+        app:layout_constraintLeft_toLeftOf="@id/add_name_txt"
+        app:layout_constraintRight_toRightOf="@id/add_name_txt"/>
+
+    <Button
+        android:id="@+id/add_btn"
+        style="@style/Edit_txt"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/add_sal"
+        app:layout_constraintRight_toRightOf="@id/add_sal"
+        app:layout_constraintTop_toBottomOf="@id/add_sal"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
