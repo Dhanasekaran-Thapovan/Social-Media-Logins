@@ -31,28 +31,79 @@
         app:layout_constraintTop_toBottomOf="@id/personal_detail_txtvw"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
             <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                android:id="@+id/tname"
+                android:text="@string/name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+            <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
                 android:id="@+id/profile_name"
-                style="@style/profile_contents"
-                android:text="@string/name" />
+                android:text="@string/name"
+                app:layout_constraintTop_toTopOf="@id/tname"
+                app:layout_constraintLeft_toRightOf="@id/tsal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tname"/>
             <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                android:id="@+id/tage"
+                android:text="@string/age"
+                app:layout_constraintTop_toBottomOf="@id/tname"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/tname"/>
+            <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                android:id="@+id/probile_dob"
+                android:text="@string/name"
+                app:layout_constraintTop_toTopOf="@id/tage"
+                app:layout_constraintLeft_toRightOf="@id/tsal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tage"/>
+            <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                android:id="@+id/tid"
+                android:text="@string/id"
+                app:layout_constraintTop_toBottomOf="@id/tage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/tname"/>
+            <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
                 android:id="@+id/profile_mail"
-                style="@style/profile_contents"
-                android:text="@string/mail" />
+                android:text="@string/name"
+                app:layout_constraintTop_toTopOf="@id/tid"
+                app:layout_constraintLeft_toRightOf="@id/tsal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tid"/>
             <TextView
-                android:id="@+id/profile_dob"
                 style="@style/profile_contents"
-                android:text="@string/dob" />
-
+                android:layout_width="wrap_content"
+                android:id="@+id/tsal"
+                android:text="@string/salary"
+                app:layout_constraintTop_toBottomOf="@id/tid"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/tname"
+                app:layout_constraintBottom_toBottomOf="parent"/>
             <TextView
+                style="@style/profile_contents"
+                android:layout_width="0dp"
                 android:id="@+id/profile_gender"
-                style="@style/profile_contents"
-                android:text="Gender" />
-        </LinearLayout>
+                android:text="@string/name"
+                app:layout_constraintTop_toTopOf="@id/tsal"
+                app:layout_constraintLeft_toRightOf="@id/tsal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tsal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 

@@ -1,29 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     android:layout_margin="10dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            style="@style/profile_contents"
-            android:id="@+id/list_name"
-            android:text="@string/name"/>
-        <TextView
-            style="@style/profile_contents"
-            android:id="@+id/list_age"
-            android:text="@string/name"/>
-        <TextView
-            style="@style/profile_contents"
-            android:id="@+id/list_sal"
-            android:text="@string/name"/>
-        <TextView
-            style="@style/profile_contents"
-            android:id="@+id/list_id"
-            android:text="@string/name"/>
-    </LinearLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/tname"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/list_name"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="@id/tname"
+        app:layout_constraintLeft_toRightOf="@id/tsal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tname"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/tage"
+        android:text="@string/age"
+        app:layout_constraintTop_toBottomOf="@id/tname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/tname"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/list_age"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="@id/tage"
+        app:layout_constraintLeft_toRightOf="@id/tsal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tage"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/tid"
+        android:text="@string/id"
+        app:layout_constraintTop_toBottomOf="@id/tage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/tname"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/list_id"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="@id/tid"
+        app:layout_constraintLeft_toRightOf="@id/tsal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tid"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="wrap_content"
+        android:id="@+id/tsal"
+        android:text="@string/salary"
+        app:layout_constraintTop_toBottomOf="@id/tid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/tname"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:id="@+id/list_sal"
+        android:text="@string/name"
+        app:layout_constraintTop_toTopOf="@id/tsal"
+        app:layout_constraintLeft_toRightOf="@id/tsal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tsal"/>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

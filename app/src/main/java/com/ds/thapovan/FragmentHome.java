@@ -60,7 +60,7 @@ public class FragmentHome extends Fragment {
             @Override
             public void onResponse(Call<GetEmployeeListResponse> call, Response<GetEmployeeListResponse> response) {
                 if (response.isSuccessful()) {
-                    if (response.body().getStatus().equals("success")) {
+                    if (response.body().getStatus().equals(getString(R.string.success))) {
                         List<DataItem> parser = response.body().getData();
                         emp_rec.setLayoutManager(new LinearLayoutManager(getActivity(),
                                 LinearLayoutManager.VERTICAL,
@@ -70,16 +70,16 @@ public class FragmentHome extends Fragment {
                         emp_rec.setAdapter(adapter);
 
                     } else {
-                        Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.went_erong, Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.went_erong, Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<GetEmployeeListResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), "Check Your Connection", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.check_connection, Toast.LENGTH_SHORT).show();
             }
         });
 

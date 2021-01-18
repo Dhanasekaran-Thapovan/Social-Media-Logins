@@ -1,6 +1,5 @@
 package com.ds.thapovan;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ds.thapovan.api_respose.DataItem;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
