@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -56,7 +55,7 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
                 setFragment(AppConstants.FRAGMENT_PROFILE);
                 break;
             case R.id.nav_userinfo:
-                setFragment(AppConstants.FRAGMENT_DATE);
+                setFragment(AppConstants.FRAGMENT_USER_INFO);
                 break;
             case R.id.nav_add:
                 setFragment(AppConstants.FRAGMENT_ADD_USER);
@@ -76,7 +75,7 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
                 getSupportActionBar().setTitle(R.string.profile);
                 break;
             case 3:
-                setNewFragment(new FragmentDate(), "UserInfo", false);
+                setNewFragment(new FragmentUserInfo(), "UserInfo", false);
                 getSupportActionBar().setTitle(R.string.user_info);
                 break;
             case 4:
