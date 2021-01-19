@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 userLogin();
 
         }
+        preferences.putLogin(true);
     }
 
     private void userLogin() {

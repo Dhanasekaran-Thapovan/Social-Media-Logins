@@ -9,6 +9,7 @@ public class AppPreferences {
     private String USER_MAIL = "USER_MAIL";
     private String TOKEN = "TOKEN";
     private String OB = "OB";
+    private String LOGIN = "LOGIN";
 
 
     public AppPreferences(Context context) {
@@ -52,4 +53,13 @@ public class AppPreferences {
     String getOb(){
         return preferences.getString(OB,"");
     }
+
+    void putLogin(Boolean login) {
+        preferences.edit().putBoolean(LOGIN, login).apply();
+    }
+
+    boolean getLogin() {
+        return preferences.getBoolean(LOGIN, false);
+    }
+
 }

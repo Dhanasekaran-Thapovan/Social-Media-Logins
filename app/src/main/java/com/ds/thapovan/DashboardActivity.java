@@ -12,6 +12,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ds.thapovan.expandable.FragmentExpandableView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -45,13 +47,13 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
         menuDrawer.syncState();
     }
 
-    @OnClick({R.id.nav_home,R.id.nav_profile, R.id.nav_userinfo, R.id.nav_add})
+    @OnClick({R.id.nav_home, R.id.nav_profile, R.id.nav_userinfo, R.id.nav_add, R.id.nav_expand})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.nav_home:
                 setFragment(1);
-                break; 
-                case R.id.nav_profile:
+                break;
+            case R.id.nav_profile:
                 setFragment(AppConstants.FRAGMENT_PROFILE);
                 break;
             case R.id.nav_userinfo:
@@ -60,11 +62,15 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
             case R.id.nav_add:
                 setFragment(AppConstants.FRAGMENT_ADD_USER);
                 break;
+            case R.id.nav_expand:
+                setFragment(AppConstants.FRAGMENT_EXPAND);
+                break;
         }
         drawerLayout.closeDrawers();
 
     }
-    public void setFragment(Integer fragmentId){
+
+    public void setFragment(Integer fragmentId) {
         switch (fragmentId) {
             case 1:
                 setNewFragment(new FragmentHome(), "Home", false);
@@ -81,6 +87,10 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
             case 4:
                 setNewFragment(new FragmentAddUser(), "AddUSer", false);
                 getSupportActionBar().setTitle(R.string.add_user);
+                break;
+            case 5:
+                setNewFragment(new FragmentExpandableView(), "Expand", false);
+                getSupportActionBar().setTitle(R.string.expandable_list);
                 break;
         }
 

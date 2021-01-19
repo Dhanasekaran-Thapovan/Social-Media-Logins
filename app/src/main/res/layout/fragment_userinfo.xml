@@ -93,34 +93,17 @@
         app:layout_constraintLeft_toLeftOf="@id/utxtvw"
         app:layout_constraintTop_toBottomOf="@id/udobtxt" />
 
-    <RadioGroup
+    <TextView
         android:id="@+id/gendergroup"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        android:padding="5dp"
+        style="@style/Edit_txt"
+        android:background="@drawable/rectangle_boc"
         app:layout_constraintBottom_toBottomOf="@id/ugendertxt"
-        app:layout_constraintLeft_toLeftOf="@id/udob"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/ugendertxt">
 
-        <RadioButton
-            android:id="@+id/malebtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:checked="true"
-            android:text="@string/male"
-            android:textColor="@color/black" />
-
-        <RadioButton
-            android:id="@+id/femalebtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="@string/female" />
-    </RadioGroup>
+    </TextView>
 
     <TextView
         android:id="@+id/uAddresstxt"

@@ -1,4 +1,4 @@
-package com.ds.thapovan.dateutils;
+package com.ds.thapovan.Commonutils;
 
 import android.app.DatePickerDialog;
 import android.content.Context;

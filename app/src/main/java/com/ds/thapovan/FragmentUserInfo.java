@@ -2,12 +2,14 @@ package com.ds.thapovan;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.RadioGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.ds.thapovan.dateutils.DateSetter;
+import com.ds.thapovan.Commonutils.CommonUtils;
+import com.ds.thapovan.Commonutils.DateSetter;
 import com.google.gson.Gson;
 
 
@@ -38,7 +41,7 @@ public class FragmentUserInfo extends Fragment {
     Button usubmitbtn;
 
     @BindView(R.id.gendergroup)
-    RadioGroup ugender;
+    TextView ugender;
 
     @BindView(R.id.uname)
     TextView uname;
@@ -71,7 +74,7 @@ public class FragmentUserInfo extends Fragment {
 
     }
 
-    @OnClick({R.id.fromdate, R.id.todate,R.id.udob,R.id.usubmit})
+    @OnClick({R.id.fromdate, R.id.todate, R.id.udob, R.id.usubmit, R.id.gendergroup})
     public void OnClick(View view) {
         switch (view.getId()) {
             case R.id.udob:
@@ -100,27 +103,25 @@ public class FragmentUserInfo extends Fragment {
                 break;
             case R.id.usubmit:
                 addDataToPreference();
-        }
+            case R.id.gendergroup:
+                CommonUtils.openPopupDialog(getActivity(),ugender,R.menu.gender_menu);
+            }
     }
 
     private void addDataToPreference() {
         Userdetails obj = new Userdetails();
-        obj.Name=uname.getText().toString();
-        obj.Email=umail.getText().toString();
-        obj.Phone=uphone.getText().toString();
-        obj.DOB=udob.getText().toString();
-        obj.Address=uaddress.getText().toString();
-        obj.City=ucity.getText().toString();
-        obj.Zipcode=uzip.getText().toString();
-        obj.Occupation=uoccupation.getText().toString();
-        obj.FromDate=fromdate.getText().toString();
-        obj.ToDate=todate.getText().toString();
-      if ( ugender.getCheckedRadioButtonId()==R.id.malebtn){
-          obj.Gender=getString(R.string.male);
-      }else {
-          obj.Gender=getString(R.string.female);
+        obj.Name = uname.getText().toString();
+        obj.Email = umail.getText().toString();
+        obj.Phone = uphone.getText().toString();
+        obj.DOB = udob.getText().toString();
+        obj.Address = uaddress.getText().toString();
+        obj.City = ucity.getText().toString();
+        obj.Zipcode = uzip.getText().toString();
+        obj.Occupation = uoccupation.getText().toString();
+        obj.FromDate = fromdate.getText().toString();
+        obj.ToDate = todate.getText().toString();
+        obj.Gender = ugender.getText().toString();
 
-      }
 
         Gson gson = new Gson();
         String json = gson.toJson(obj);
@@ -130,7 +131,7 @@ public class FragmentUserInfo extends Fragment {
     }
 
     private void afterAdding() {
-        Toast.makeText(getActivity(),R.string.success,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.success, Toast.LENGTH_SHORT).show();
         uname.setText("");
         uoccupation.setText("");
         uzip.setText("");
@@ -141,6 +142,7 @@ public class FragmentUserInfo extends Fragment {
         udob.setText("");
         fromdate.setText("");
         todate.setText("");
+        ugender.setText("");
     }
 
 }

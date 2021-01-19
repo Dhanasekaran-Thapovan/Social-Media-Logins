@@ -45,4 +45,6 @@
     <string name="date_from">Date From</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="expandable_list">Expandable List</string>
+    <string name="others">others</string>
 </resources>

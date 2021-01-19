@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/male"
+        android:title="@string/male"
+        android:tooltipText="@string/male" />
+    <item
+        android:id="@+id/female"
+        android:title="@string/female"
+        android:tooltipText="@string/female" />
+    <item
+        android:id="@+id/others"
+        android:title="@string/others"
+        android:tooltipText="@string/others" />
+</menu>

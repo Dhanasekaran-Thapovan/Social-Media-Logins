@@ -37,5 +37,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nav_userinfo" />
+    <TextView
+        android:id="@+id/nav_expand"
+        style="@style/nav_titles"
+        android:text="@string/expandable_list"
+        android:drawableLeft="@drawable/ic_add"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
