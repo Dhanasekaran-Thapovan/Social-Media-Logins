@@ -8,11 +8,13 @@
         android:id="@+id/add_name_txt"
         android:text="@string/name"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintLeft_toLeftOf="parent"/>
     <EditText
         style="@style/Edit_txt"
         android:id="@+id/add_name"
         android:hint="@string/name"
+        android:background="@drawable/rectangle_boc"
         app:layout_constraintTop_toBottomOf="@id/add_name_txt"
         app:layout_constraintLeft_toLeftOf="@id/add_name_txt"
         app:layout_constraintRight_toRightOf="@id/add_name_txt"/>
@@ -25,7 +27,9 @@
     <EditText
         style="@style/Edit_txt"
         android:id="@+id/add_age"
-        android:hint="@string/name"
+        android:background="@drawable/rectangle_boc"
+        android:inputType="number"
+        android:hint="@string/age"
         app:layout_constraintTop_toBottomOf="@id/add_age_txt"
         app:layout_constraintLeft_toLeftOf="@id/add_name_txt"
         app:layout_constraintRight_toRightOf="@id/add_name_txt"/>
@@ -38,7 +42,9 @@
     <EditText
         style="@style/Edit_txt"
         android:id="@+id/add_sal"
-        android:hint="@string/name"
+        android:inputType="number"
+        android:background="@drawable/rectangle_boc"
+        android:hint="@string/salary"
         app:layout_constraintTop_toBottomOf="@id/add_sal_txt"
         app:layout_constraintLeft_toLeftOf="@id/add_name_txt"
         app:layout_constraintRight_toRightOf="@id/add_name_txt"/>

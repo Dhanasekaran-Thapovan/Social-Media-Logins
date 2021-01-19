@@ -1,7 +1,6 @@
 package com.ds.thapovan;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,13 +12,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,22 +33,9 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
         setContentView(R.layout.activity_dashboard);
         ButterKnife.bind(this);
         preferences = new AppPreferences(this);
+        setSupportActionBar(homeActionBar);
         drawerfun();
-        Integer frag = getIntent().getIntExtra(AppConstants.FRAGMENT_ID, 0);
-        switch (frag) {
-            case 1:
-                setNewFragment(new FragmentHome(), "Home", false);
-                break;
-            case 2:
-                setNewFragment(new FragmentProfile(), "Profile", false);
-                break;
-            case 3:
-                setNewFragment(new FragmentDate(), "Date", false);
-                break;
-            case 4:
-                setNewFragment(new FragmentAddUser(), "AddUSer", false);
-                break;
-        }
+        setFragment(1);
 
     }
 
@@ -67,23 +46,45 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
         menuDrawer.syncState();
     }
 
-    @OnClick({R.id.nav_profile, R.id.nav_date, R.id.nav_add})
+    @OnClick({R.id.nav_home,R.id.nav_profile, R.id.nav_userinfo, R.id.nav_add})
     public void onClick(View view) {
-        Intent nxtIntent = null;
         switch (view.getId()) {
-            case R.id.nav_profile:
-                nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_PROFILE);
+            case R.id.nav_home:
+                setFragment(1);
+                break; 
+                case R.id.nav_profile:
+                setFragment(AppConstants.FRAGMENT_PROFILE);
                 break;
-            case R.id.nav_date:
-                nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_DATE);
+            case R.id.nav_userinfo:
+                setFragment(AppConstants.FRAGMENT_DATE);
                 break;
             case R.id.nav_add:
-                nxtIntent = new Intent(this, DashboardActivity.class).putExtra(AppConstants.FRAGMENT_ID, AppConstants.FRAGMENT_ADD_USER);
+                setFragment(AppConstants.FRAGMENT_ADD_USER);
                 break;
         }
-        if (nxtIntent != null) {
-            startActivity(nxtIntent);
+        drawerLayout.closeDrawers();
+
+    }
+    public void setFragment(Integer fragmentId){
+        switch (fragmentId) {
+            case 1:
+                setNewFragment(new FragmentHome(), "Home", false);
+                getSupportActionBar().setTitle(R.string.home);
+                break;
+            case 2:
+                setNewFragment(new FragmentProfile(), "Profile", false);
+                getSupportActionBar().setTitle(R.string.profile);
+                break;
+            case 3:
+                setNewFragment(new FragmentDate(), "UserInfo", false);
+                getSupportActionBar().setTitle(R.string.user_info);
+                break;
+            case 4:
+                setNewFragment(new FragmentAddUser(), "AddUSer", false);
+                getSupportActionBar().setTitle(R.string.add_user);
+                break;
         }
+
     }
 
 

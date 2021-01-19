@@ -93,6 +93,7 @@ public class FragmentAddUser extends Fragment {
                 if (response.isSuccessful()) {
                     if (response.body().getStatus().equals(getString(R.string.success))) {
                         Toast.makeText(getActivity(),response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        addName.setText("");addAge.setText("");addSal.setText("");
 
                     } else {
                         Toast.makeText(getActivity(), R.string.went_erong, Toast.LENGTH_SHORT).show();

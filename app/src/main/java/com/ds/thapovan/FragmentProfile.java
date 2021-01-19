@@ -31,6 +31,21 @@ public class FragmentProfile extends Fragment {
     @BindView(R.id.profile_pic)
     CircleImageView pImg;
 
+    @BindView(R.id.profile_phone)
+    TextView pPhone;
+    @BindView(R.id.profile_address)
+    TextView pAddress;
+    @BindView(R.id.profile_city)
+    TextView pCity;
+    @BindView(R.id.profile_zip)
+    TextView pZip;
+    @BindView(R.id.profile_occupation)
+    TextView pOccupation;
+    @BindView(R.id.profile_from)
+    TextView pFrom;
+    @BindView(R.id.profile_to)
+    TextView pTo;
+
 
     @Nullable
     @Override
@@ -51,7 +66,15 @@ public class FragmentProfile extends Fragment {
         Userdetails obj = gson.fromJson(json, Userdetails.class);
         pName.setText(obj.Name);
         pMail.setText(obj.Email);
+        pPhone.setText(obj.Phone);
+        pOccupation.setText(obj.Occupation);
         pDOB.setText(obj.DOB);
+        pAddress.setText(obj.Address);
+        pCity.setText(obj.City);
+        pZip.setText(obj.Zipcode);
+        pFrom.setText(obj.FromDate);
+        pTo.setText(obj.ToDate);
+        pGender.setText(obj.Gender);
         Glide.with(getActivity())
                 .load(obj.img)
                 .into(pImg);

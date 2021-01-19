@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_pic"
@@ -95,6 +98,26 @@
                 app:layout_constraintTop_toTopOf="@id/tdob" />
 
             <TextView
+                android:id="@+id/tphone"
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                android:text="@string/phone"
+                android:textSize="13sp"
+                android:textColor="@color/txt_grey"
+                app:layout_constraintEnd_toEndOf="@+id/tname"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tdob" />
+
+            <TextView
+                android:id="@+id/profile_phone"
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/tphone"
+                app:layout_constraintLeft_toRightOf="@id/tsal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tphone" />
+
+            <TextView
                 android:id="@+id/tsal"
                 style="@style/profile_contents"
                 android:layout_width="wrap_content"
@@ -103,7 +126,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/tname"
-                app:layout_constraintTop_toBottomOf="@id/tdob" />
+                app:layout_constraintTop_toBottomOf="@id/tphone" />
 
             <TextView
                 android:id="@+id/profile_gender"
@@ -117,15 +140,24 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/contact_detail_txtvw"
+        style="@style/profile_titles"
+        android:text="@string/location_detail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_1" />
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/card_2"
         android:layout_margin="8dp"
         android:padding="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_1"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/contact_detail_txtvw">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -142,29 +174,118 @@
                 android:id="@+id/profile_address"
                 style="@style/profile_contents"
                 android:layout_width="0dp"
-                android:text="No.26,1st Cross St,Madurai"
                 app:layout_constraintTop_toBottomOf="@id/taddress"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
             <TextView
-                android:id="@+id/tstate"
+                android:id="@+id/tcity"
                 style="@style/profile_contents"
                 android:layout_width="wrap_content"
-                android:text="@string/state"
+                android:text="@string/city"
                 android:textColor="@color/txt_grey"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profile_address"/>
 
             <TextView
-                android:id="@+id/profile_state"
+                android:id="@+id/profile_city"
                 style="@style/profile_contents"
                 android:layout_width="0dp"
-                android:text="TamilNadu"
-                app:layout_constraintTop_toBottomOf="@id/tstate"
+                app:layout_constraintTop_toBottomOf="@id/tcity"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/tzip"
+                style="@style/profile_contents"
+                android:layout_width="wrap_content"
+                android:text="@string/state"
+                android:textColor="@color/txt_grey"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_city"/>
+
+            <TextView
+                android:id="@+id/profile_zip"
+                style="@style/profile_contents"
+                android:layout_width="0dp"
+                app:layout_constraintTop_toBottomOf="@id/tzip"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:id="@+id/work_detail_txtvw"
+            style="@style/profile_titles"
+            android:text="@string/work_details"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/card_3"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/work_detail_txtvw"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/toccup"
+                    style="@style/profile_contents"
+                    android:layout_width="wrap_content"
+                    android:text="@string/occupation"
+                    android:textColor="@color/txt_grey"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/profile_occupation"
+                    style="@style/profile_contents"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toTopOf="@id/toccup"
+                    app:layout_constraintLeft_toRightOf="@id/toccup"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/toccup"/>
+
+                <TextView
+                    android:id="@+id/tfrom"
+                    style="@style/profile_contents"
+                    android:layout_width="wrap_content"
+                    android:text="@string/date_from"
+                    android:textColor="@color/txt_grey"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toccup"/>
+                <TextView
+                    android:id="@+id/profile_from"
+                    style="@style/profile_contents"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toTopOf="@id/tfrom"
+                    app:layout_constraintLeft_toRightOf="@id/toccup"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/tfrom"/>
+                <TextView
+                    android:id="@+id/tto"
+                    style="@style/profile_contents"
+                    android:layout_width="wrap_content"
+                    android:text="Date To"
+                    android:textColor="@color/txt_grey"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tfrom"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+                <TextView
+                    android:id="@+id/profile_to"
+                    style="@style/profile_contents"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toTopOf="@id/tto"
+                    app:layout_constraintLeft_toRightOf="@id/toccup"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/tto"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

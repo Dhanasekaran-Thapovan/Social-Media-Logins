@@ -1,47 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/utxtvw"
         style="@style/profile_titles"
-        android:id="@+id/dtxtvw"
-        android:text="@string/select_date"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        android:text="@string/user_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/unametxt"
         style="@style/profile_contents"
+        android:text="@string/name"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/utxtvw" />
+
+    <EditText
+        android:id="@+id/uname"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        app:layout_constraintBottom_toBottomOf="@id/unametxt"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/unametxt" />
+
+    <TextView
+        android:id="@+id/umailtxt"
+        style="@style/profile_contents"
+        android:text="@string/mail"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/unametxt" />
+
+    <EditText
+        android:id="@+id/umail"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        app:layout_constraintBottom_toBottomOf="@id/umailtxt"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/umailtxt" />
+
+    <TextView
+        android:id="@+id/uphonetxt"
+        style="@style/profile_contents"
+        android:text="@string/phone"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/umailtxt" />
+
+    <EditText
+        android:id="@+id/uphone"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/uphonetxt"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/uphonetxt" />
+
+    <TextView
+        android:id="@+id/udobtxt"
+        style="@style/profile_contents"
+        android:text="@string/dob"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/uphonetxt" />
+
+    <TextView
+        android:id="@+id/udob"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        android:drawableRight="@drawable/ic_calendar"
+        app:layout_constraintBottom_toBottomOf="@id/udobtxt"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/udobtxt" />
+
+    <TextView
+        android:id="@+id/ugendertxt"
+        style="@style/profile_contents"
+        android:text="@string/gender"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/udobtxt" />
+
+    <RadioGroup
+        android:id="@+id/gendergroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/ugendertxt"
+        app:layout_constraintLeft_toLeftOf="@id/udob"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ugendertxt">
+
+        <RadioButton
+            android:id="@+id/malebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:checked="true"
+            android:text="@string/male"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/femalebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/female" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/uAddresstxt"
+        style="@style/profile_contents"
+        android:text="@string/address"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/ugendertxt" />
+
+    <EditText
+        android:id="@+id/uAddress"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        app:layout_constraintBottom_toBottomOf="@id/uAddresstxt"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/uAddresstxt" />
+
+    <TextView
+        android:id="@+id/ucitytxt"
+        style="@style/profile_contents"
+        android:text="@string/city"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/uAddresstxt" />
+
+    <EditText
+        android:id="@+id/ucity"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        app:layout_constraintBottom_toBottomOf="@id/ucitytxt"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ucitytxt" />
+
+    <TextView
+        android:id="@+id/uziptxt"
+        style="@style/profile_contents"
+        android:text="Zip Code"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/ucitytxt" />
+
+    <EditText
+        android:id="@+id/uzip"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/uziptxt"
+        app:layout_constraintLeft_toRightOf="@+id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/uziptxt" />
+
+    <TextView
+        android:id="@+id/uwtxtvw"
+        style="@style/profile_titles"
+        android:text="@string/work"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/uziptxt" />
+
+    <TextView
+        android:id="@+id/uwrktxt"
+        style="@style/profile_contents"
+        android:text="@string/occupation"
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/uwtxtvw" />
+
+    <EditText
+        android:id="@+id/uwrk"
+        style="@style/Edit_txt"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        app:layout_constraintBottom_toBottomOf="@id/uwrktxt"
+        app:layout_constraintLeft_toRightOf="@+id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/uwrktxt" />
+
+    <TextView
         android:id="@+id/dfromtxtvw"
+        style="@style/profile_contents"
         android:text="@string/from"
         android:textColor="@color/txt_grey"
-        app:layout_constraintTop_toBottomOf="@id/dtxtvw"
-        app:layout_constraintLeft_toLeftOf="@id/dtxtvw"/>
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/uwrktxt" />
+
     <TextView
-        style="@style/profile_contents"
         android:id="@+id/dtotxtvw"
-        android:textColor="@color/txt_grey"
+        style="@style/profile_contents"
         android:text="@string/to"
-        app:layout_constraintTop_toBottomOf="@id/dfromtxtvw"
-        app:layout_constraintLeft_toLeftOf="@id/dtxtvw"/>
+        android:textColor="@color/txt_grey"
+        app:layout_constraintLeft_toLeftOf="@id/utxtvw"
+        app:layout_constraintTop_toBottomOf="@id/dfromtxtvw" />
+
     <TextView
-        style="@style/profile_contents"
         android:id="@+id/fromdate"
-        android:layout_width="0dp"
-        android:drawableRight="@drawable/ic_calendar"
-        app:layout_constraintTop_toTopOf="@id/dfromtxtvw"
-        app:layout_constraintLeft_toRightOf="@id/dfromtxtvw"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/dfromtxtvw"/>
-    <TextView
         style="@style/profile_contents"
-        android:id="@+id/todate"
         android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
         android:drawableRight="@drawable/ic_calendar"
-        app:layout_constraintTop_toTopOf="@id/dtotxtvw"
-        app:layout_constraintLeft_toRightOf="@id/dfromtxtvw"
+        app:layout_constraintBottom_toBottomOf="@id/dfromtxtvw"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/dtotxtvw"/>
+        app:layout_constraintTop_toTopOf="@id/dfromtxtvw" />
+
+    <TextView
+        android:id="@+id/todate"
+        style="@style/profile_contents"
+        android:layout_width="0dp"
+        android:background="@drawable/rectangle_boc"
+        android:drawableRight="@drawable/ic_calendar"
+        app:layout_constraintBottom_toBottomOf="@id/dtotxtvw"
+        app:layout_constraintLeft_toRightOf="@id/uziptxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dtotxtvw" />
+
+    <Button
+        android:id="@+id/usubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dtotxtvw" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

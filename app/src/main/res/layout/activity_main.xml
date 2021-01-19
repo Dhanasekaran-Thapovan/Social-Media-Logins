@@ -5,30 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/userName"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="5dp"
-        android:hint="User Name"
-        style="@style/Edit_txt"
+    <TextView
+        style="@style/profile_titles"
+        android:id="@+id/tit"
+        android:text="Welcome"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:padding="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <EditText
+        android:id="@+id/userName"
+        android:background="@drawable/rectangle_boc"
+        android:hint="User Name"
+        style="@style/Edit_txt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tit"/>
+    <EditText
         android:id="@+id/userid"
-        android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="5dp"
         android:hint="User Mail"
         style="@style/Edit_txt"
+        android:background="@drawable/rectangle_boc"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userName" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="15dp"
         android:hint="Password"
+        android:background="@drawable/rectangle_boc"
         android:inputType="textPassword"
         style="@style/Edit_txt"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -49,11 +56,9 @@
         style="@style/Edit_txt"
         android:layout_width="wrap_content"
         android:text="@string/sign_in_using"
-        app:layout_constraintBottom_toTopOf="@id/signin_by_google"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginbtn"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintTop_toBottomOf="@id/loginbtn"/>
 
     <ImageView
         android:id="@+id/signin_by_google"
@@ -62,16 +67,15 @@
         android:src="@drawable/ic_google"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_bias="0.07999998" />
 
     <ImageView
         android:id="@+id/signin_by_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_facebook"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/signin_by_google"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toTopOf="@+id/signin_by_google" />
 </androidx.constraintlayout.widget.ConstraintLayout>
