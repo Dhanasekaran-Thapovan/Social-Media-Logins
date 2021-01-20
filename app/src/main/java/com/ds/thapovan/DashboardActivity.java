@@ -47,7 +47,7 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
         menuDrawer.syncState();
     }
 
-    @OnClick({R.id.nav_home, R.id.nav_profile, R.id.nav_userinfo, R.id.nav_add, R.id.nav_expand})
+    @OnClick({R.id.nav_home, R.id.nav_profile, R.id.nav_userinfo, R.id.nav_add, R.id.nav_expand, R.id.nav_pager})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.nav_home:
@@ -64,6 +64,9 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
                 break;
             case R.id.nav_expand:
                 setFragment(AppConstants.FRAGMENT_EXPAND);
+                break;
+            case R.id.nav_pager:
+                setFragment(AppConstants.FRAGMENT_PAGER);
                 break;
         }
         drawerLayout.closeDrawers();
@@ -91,6 +94,10 @@ public class DashboardActivity extends AppCompatActivity implements DrawerLayout
             case 5:
                 setNewFragment(new FragmentExpandableView(), "Expand", false);
                 getSupportActionBar().setTitle(R.string.expandable_list);
+                break;
+            case 6:
+                setNewFragment(new FragmentPager(), "View Pager", false);
+                getSupportActionBar().setTitle(R.string.view_pager);
                 break;
         }
 

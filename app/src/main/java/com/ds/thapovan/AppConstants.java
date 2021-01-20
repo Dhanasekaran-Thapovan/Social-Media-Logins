@@ -7,4 +7,5 @@ public class AppConstants {
     public static final Integer FRAGMENT_USER_INFO =3;
     public static final Integer FRAGMENT_ADD_USER=4;
     public static final Integer FRAGMENT_EXPAND=5;
+    public static final Integer FRAGMENT_PAGER=6;
 }

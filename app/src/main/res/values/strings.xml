@@ -47,4 +47,5 @@
     <string name="female">Female</string>
     <string name="expandable_list">Expandable List</string>
     <string name="others">others</string>
+    <string name="view_pager">View Pager</string>
 </resources>

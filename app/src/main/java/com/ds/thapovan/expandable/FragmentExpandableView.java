@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
 
 public class FragmentExpandableView extends Fragment implements ExpandableEventSubscriber {
 
+
     @BindView(R.id.expand_rec_view)
     RecyclerView ex_rec;
 
@@ -40,7 +41,9 @@ public class FragmentExpandableView extends Fragment implements ExpandableEventS
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         CommunicationManager.getInstance().getExpandableDetails(this);
+
     }
+
 
     public void onExpandableResponse(ExpandableApiResponse response) {
         if (response.isSuccess()) {

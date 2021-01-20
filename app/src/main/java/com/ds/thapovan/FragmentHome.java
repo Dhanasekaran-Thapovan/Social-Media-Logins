@@ -1,5 +1,6 @@
 package com.ds.thapovan;
 
+import android.app.ProgressDialog;
 import android.net.DnsResolver;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ds.thapovan.Commonutils.CommonUtils;
 import com.ds.thapovan.api_respose.DataItem;
 import com.ds.thapovan.api_respose.GetEmployeeListResponse;
 import com.google.gson.Gson;
@@ -32,6 +34,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FragmentHome extends Fragment {
+
+    ProgressDialog dialog;
 
     private AppPreferences preferences;
     @BindView(R.id.home_rec_view)
@@ -49,11 +53,11 @@ public class FragmentHome extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         preferences = new AppPreferences(getActivity());
         ButterKnife.bind(this, view);
-
         retrofitCall();
     }
 
     private void retrofitCall() {
+        dialog=ProgressDialog.show(getActivity(),"","Loading...",true);
         Retrofit empRetrofit = new Retrofit.Builder().baseUrl(APIConstants.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         Call call = empRetrofit.create(RetrofitInterface.class).getEmployees();
         call.enqueue(new Callback<GetEmployeeListResponse>() {
@@ -68,17 +72,21 @@ public class FragmentHome extends Fragment {
                         EmpRecAdapter adapter = new EmpRecAdapter(parser);
 
                         emp_rec.setAdapter(adapter);
+                        dialog.hide();
 
                     } else {
+                        dialog.hide();
                         Toast.makeText(getActivity(), R.string.went_erong, Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    dialog.hide();
                     Toast.makeText(getActivity(), R.string.went_erong, Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<GetEmployeeListResponse> call, Throwable t) {
+                dialog.hide();
                 Toast.makeText(getActivity(), R.string.check_connection, Toast.LENGTH_SHORT).show();
             }
         });
